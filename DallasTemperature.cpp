@@ -666,6 +666,7 @@ int32_t DallasTemperature::calculateTemperature(const uint8_t* deviceAddress,
 	if (deviceAddress[DSROM_FAMILY] == DS1825MODEL && scratchPad[CONFIGURATION] & 0x80 ) {
 		//Serial.print("  Detected MAX31850");
 		if (scratchPad[TEMP_LSB] & 1) { // Fault Detected
+                  Serial.println("FaultDetected!");
 			if (scratchPad[HIGH_ALARM_TEMP] & 1) {
 				//Serial.println("open detected");
 				return DEVICE_FAULT_OPEN_RAW;
@@ -680,6 +681,7 @@ int32_t DallasTemperature::calculateTemperature(const uint8_t* deviceAddress,
 			}
 			else {
 				// We don't know why there's a fault, exit with disconnect value
+                          Serial.println("Unknown Fault, returning Disconnect!");
 				return DEVICE_DISCONNECTED_RAW;
 			}
 		}
