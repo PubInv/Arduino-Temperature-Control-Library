@@ -4,6 +4,7 @@
 // version 2.1 of the License, or (at your option) any later version.
 
 #include "DallasTemperature.h"
+#include <Arduino.h>
 
 // for Particle support
 // yield() is not a standard function, but instead wraps Particle process
@@ -180,6 +181,7 @@ bool DallasTemperature::isConnected(const uint8_t* deviceAddress) {
 bool DallasTemperature::isConnected(const uint8_t* deviceAddress,
                                     uint8_t* scratchPad) {
 	bool b = readScratchPad(deviceAddress, scratchPad);
+        Serial.println("spudboy debugging!");
 	return b && !isAllZeros(scratchPad) && (_wire->crc8(scratchPad, 8) == scratchPad[SCRATCHPAD_CRC]);
 }
 
