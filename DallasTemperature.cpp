@@ -669,6 +669,7 @@ int32_t DallasTemperature::calculateTemperature(const uint8_t* deviceAddress,
                   Serial.println("FaultDetected!");
 			if (scratchPad[HIGH_ALARM_TEMP] & 1) {
 				//Serial.println("open detected");
+                          Serial.println("DEVICE_FAULT_OPEN_RAW returned!");
 				return DEVICE_FAULT_OPEN_RAW;
 			}
 			else if (scratchPad[HIGH_ALARM_TEMP] >> 1 & 1) {
