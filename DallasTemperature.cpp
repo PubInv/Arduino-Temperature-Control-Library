@@ -181,7 +181,7 @@ bool DallasTemperature::isConnected(const uint8_t* deviceAddress) {
 bool DallasTemperature::isConnected(const uint8_t* deviceAddress,
                                     uint8_t* scratchPad) {
 	bool b = readScratchPad(deviceAddress, scratchPad);
-        Serial.println("Debug (b,!isAllZerors, CRC1, CRC2: ");
+        Serial.println("Debug (b,!isAllZerors, CRC1, CRC2:) ");
         Serial.print(b);
         Serial.print(", ");
         Serial.print(!isAllZeros(scratchPad));
