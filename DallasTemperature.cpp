@@ -667,6 +667,8 @@ int32_t DallasTemperature::calculateTemperature(const uint8_t* deviceAddress,
 		//Serial.print("  Detected MAX31850");
 		if (scratchPad[TEMP_LSB] & 1) { // Fault Detected
                   Serial.println("FaultDetected!");
+                  Serial.println(scratchPad[TEMP_LSB],BIN);
+                  Serial.println(scratchPad[HIGH_ALARM_TEMP],BIN);
 			if (scratchPad[HIGH_ALARM_TEMP] & 1) {
 				//Serial.println("open detected");
                           Serial.println("DEVICE_FAULT_OPEN_RAW returned!");
