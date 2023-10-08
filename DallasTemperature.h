@@ -1,7 +1,8 @@
 #ifndef DallasTemperature_h
 #define DallasTemperature_h
 
-#define DALLASTEMPLIBVERSION "3.8.1" // To be deprecated -> TODO remove in 4.0.0
+//#define DALLASTEMPLIBVERSION "3.8.1" // To be deprecated -> TODO remove in 4.0.0
+#define DALLASTEMPLIBVERSION "3.99999_20231007" // PublicInvention work of 20231007
 
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
