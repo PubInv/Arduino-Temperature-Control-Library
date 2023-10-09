@@ -2,13 +2,11 @@
 // Modified by Lee Erickson
 // Date: 230231006
 // Moving Rob's modified library into Arduino IDE library folder Date: 230231008, V3
+// Chnage print formating to more stream line. Date: 230231009, V4
 
 #include <OneWire.h>
 //#include <DallasTemperature.h>
-//#include "C:\Users\Public\Downloads\Arduino\PubInv\DallasTemprature\Arduino-Temperature-Control-Library\DallasTemperature.h"
 #include "DallasTemperature.h"
-//#include "C:\Users\Public\Downloads\Arduino\PubInv\DallasTemprature\Arduino-Temperature-Control-Library\DallasTemperature.h"
-//#include "..\\DallasTemperature.h"
 
 
 // Data wire is plugged into port 2 on the Arduino
@@ -162,7 +160,7 @@ void loop(void)
   //  delay(500);
 
 
-  //Print for formating
+  //Print for formating for possible ploting. Does not work well enough.
   printTemperature(insideThermometer);
   Serial.print(", ");
   printTemperature(outsideThermometer);
