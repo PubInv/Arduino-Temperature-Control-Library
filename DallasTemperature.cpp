@@ -181,14 +181,14 @@ bool DallasTemperature::isConnected(const uint8_t* deviceAddress) {
 bool DallasTemperature::isConnected(const uint8_t* deviceAddress,
                                     uint8_t* scratchPad) {
 	bool b = readScratchPad(deviceAddress, scratchPad);
-        Serial.println("Debug (b,!isAllZerors, CRC1, CRC2:) ");
-        Serial.print(b);
-        Serial.print(", ");
-        Serial.print(!isAllZeros(scratchPad));
-        Serial.print(", ");
-        Serial.print(_wire->crc8(scratchPad, 8));
-        Serial.print(", ");
-        Serial.println(scratchPad[SCRATCHPAD_CRC]);
+//        Serial.println("Debug (b,!isAllZerors, CRC1, CRC2:) ");
+//        Serial.print(b);
+//        Serial.print(", ");
+//        Serial.print(!isAllZeros(scratchPad));
+//        Serial.print(", ");
+//        Serial.print(_wire->crc8(scratchPad, 8));
+//        Serial.print(", ");
+//        Serial.println(scratchPad[SCRATCHPAD_CRC]);
 	return b && !isAllZeros(scratchPad) && (_wire->crc8(scratchPad, 8) == scratchPad[SCRATCHPAD_CRC]);
 }
 
@@ -670,16 +670,16 @@ int32_t DallasTemperature::calculateTemperature(const uint8_t* deviceAddress,
                   Serial.println(scratchPad[TEMP_LSB],BIN);
                   Serial.println(scratchPad[HIGH_ALARM_TEMP],BIN);
 			if (scratchPad[HIGH_ALARM_TEMP] & 1) {
-				//Serial.println("open detected");
-                          Serial.println("DEVICE_FAULT_OPEN_RAW returned!");
+				Serial.println("open detected");
+                //          Serial.println("DEVICE_FAULT_OPEN_RAW returned!");
 				return DEVICE_FAULT_OPEN_RAW;
 			}
 			else if (scratchPad[HIGH_ALARM_TEMP] >> 1 & 1) {
-				//Serial.println("short to ground detected");
+				Serial.println("short to ground detected");
 				return DEVICE_FAULT_SHORTGND_RAW;
 			}
 			else if (scratchPad[HIGH_ALARM_TEMP] >> 2 & 1) {
-				//Serial.println("short to Vdd detected");
+				Serial.println("short to Vdd detected");
 				return DEVICE_FAULT_SHORTVDD_RAW;
 			}
 			else {
